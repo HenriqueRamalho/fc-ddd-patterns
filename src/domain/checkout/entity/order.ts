@@ -1,3 +1,4 @@
+import Product from "../../product/entity/product";
 import OrderItem from "./order_item";
 export default class Order {
   private _id: string;
@@ -45,5 +46,9 @@ export default class Order {
 
   total(): number {
     return this._items.reduce((acc, item) => acc + item.price, 0);
+  }
+
+  addOrderItem(item: OrderItem) {
+    this._items.push(item)
   }
 }
